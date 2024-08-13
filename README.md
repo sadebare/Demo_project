@@ -1,7 +1,5 @@
 # Zomato Clone: Secure Deployment with DevSecOps CI/CD
 
-## 👉 Blog Link: https://blog.prodevopsguy.xyz/zomato-clone-secure-deployment-with-devsecops-cicd
-
 ## ✌️ Samples
 ![Samples](https://miro.medium.com/v2/resize:fit:750/format:webp/1*xVxk3tSbk9yA6hel60t13g.png)
 ![Samples](https://miro.medium.com/v2/resize:fit:750/format:webp/1*KOwp6K2sOcSmDyk9Axnvhw.png)
