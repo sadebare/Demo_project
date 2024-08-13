@@ -1,23 +1,25 @@
 name: Build and Push Docker Image to Docker Hub
 
-on: push
+on:
+  push:
+    branches:
+      - "main"
 jobs:
-  push_to_registry:
-    name: push docker image to hub
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: check repository
-        uses: actions/checkout@v4
-
-      - name: login to docker registry
+      -
+        name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_TOKEN}}
-
-      - name: build and push docker image to registry
-        uses: docker/build-push-action@v5
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Build and push
+        uses: docker/build-push-action@v6
         with:
-          context: .
           push: true
-          tags: barry123/demo:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo_project:latest
