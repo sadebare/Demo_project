@@ -166,5 +166,9 @@
 13. The deployed application is shown below
 ![app](./images/app.png)
 
+14. Finally once we are done we can get to delete the cluster using the command
+
+                eksctl delete cluster --name new-cluster --region region-code
+
 ##  Bonus
 ### I have created a Contineous Integration Pipeline to build and push the application to my dockerhub which is located at the .github/workflows directory.
