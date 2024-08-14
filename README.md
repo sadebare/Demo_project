@@ -149,7 +149,22 @@
 
 10. Create a Fargate profile that's required for the application deployment. Use the following command:
 
-            eksctl create fargateprofile --cluster NEW-CLUSTER --region us-east-1 --name alb-sample-app --namespace dev
+            eksctl create fargateprofile --cluster your-cluster --region your-region-code --name alb-sample-app --namespace dev
 
 
-eksctl create fargateprofile --cluster NEW-CLUSTER --region us-east-1 --name your-alb-sample-app --namespace game-2048
+11. I have a sample application on docker, so i have created a manifest file ay [here](./k8s/deploy.yaml) where i created namespace, deployment, service and an ingress to have a load balancer attached to the service.
+
+            kubectl apply -f deploy.yaml
+
+12. Lastly, i can get the ingress of my application using the command 
+
+            kubectl get ingress -n dev
+    
+    +   Also, we can see this in AWS
+    ![lb](./images/lb.png)
+
+13. The deployed application is shown below
+![app](./images/app.png)
+
+##  Bonus
+### I have created a Contineous Integration Pipeline to build and push the application to my dockerhub which is located at the .github/workflows directory.
